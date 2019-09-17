@@ -1,5 +1,3 @@
-console.log("hooked up");
-
 var firebaseConfig = {
     apiKey: "AIzaSyD9l1BlRJzvoLbms79VJylZyTzBbC3BXXA",
     authDomain: "train-time-scheduler-54673.firebaseapp.com",

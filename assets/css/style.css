@@ -1,5 +1,28 @@
+body{
+    background-color: #f4f4f4;
+}
+
 .jumbotron {
-    background-image: url("assets/images/how-to-get-to-taormina-by-train.jpg");
+    background-image: url("/assets/images/how-to-get-to-taormina-by-train.jpg");
     background-repeat: round;
     width: 100%;
+    height: 260px;
+    margin-top: 20px;
+}
+
+h1{
+    line-height: 75px;
+}
+
+h1, h3 {
+    background-color: #d8d8bdc9;
+    border-radius: 5px;
+}
+
+.card-body {
+    background-color: #d8d8bd42;
+}
+
+.card-header {
+    background-color: #d8d8bdc9;
 }
