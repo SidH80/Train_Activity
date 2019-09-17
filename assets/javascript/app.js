@@ -37,6 +37,7 @@ $("#add-train").on("click", function(event) {
   trainFrequency = $("#frequency-input").val().trim();
   firstTrain = $("#time-input").val().trim();
 
+  //Console.log
   console.log(trainName);
   console.log(trainDestination);
   console.log(trainFrequency);
@@ -47,15 +48,34 @@ $("#add-train").on("click", function(event) {
     dbtrainName: trainName,
     dbtrainDestination: trainDestination,
     dbtrainFrequency: trainFrequency,
-    dbfirstName: firstTrain
+    dbfirstTrain: firstTrain
 
   })
 
-    alert("Train added...!")
+  alert("Train added...!")
 
   $("#train-input").val("");
   $("#destination-input").val("");
   $("#frequency-input").val("");
   $("#time-input").val("");
 
+})
+
+  database.ref().on("child_added", function(snap) {
+    console.log(snap.val());
+
+    var tName = snap.val().dbtrainName;
+    var tDestination = snap.val().dbtrainDestination;
+    var tFrequency = snap.val().dbtrainFrequency;
+    var tFirstTrain = snap.val().dbdbfirstTrain;
+
+    var tr = $("<tr>")
+    tr.append(
+      "<td>" + tName + "</td>",
+      "<td>" + tDestination + "</td>",
+      "<td>" + tFrequency + "</td>",
+      "<td> to be calculated </td>",
+      "<td> to be calculated </td>",
+    )
+    $("tbody").append(tr)
 });
