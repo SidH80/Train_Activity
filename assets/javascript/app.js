@@ -25,6 +25,8 @@ var firstTrain;
 var trainNextArrival;
 var trainMinutesAway;
 
+var currentTime = moment();
+
 // POPULATE FIREBASE DATABASE WITH INITIAL DATA
 
 // CREATE ON CLICK EVENT TO CAPTURE FORM VALUES
@@ -67,15 +69,41 @@ $("#add-train").on("click", function(event) {
     var tName = snap.val().dbtrainName;
     var tDestination = snap.val().dbtrainDestination;
     var tFrequency = snap.val().dbtrainFrequency;
-    var tFirstTrain = snap.val().dbdbfirstTrain;
+    var tFirstTrain = snap.val().dbfirstTrain;
+
+    // Time calculations and conversions
+
+    var tFirstTrainConverted = moment(tFirstTrain, "HH:mm").subtract(1, "years");
+    console.log(tFirstTrain);
+    console.log(tFirstTrainConverted);
+
+    var currentTime = moment();
+    console.log(currentTime);
+
+
+    var diffTime = moment().diff(moment(tFirstTrainConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    var tRemainder = diffTime % tFrequency;
+    console.log(tRemainder);
+
+    trainMinutesAway = tFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + trainMinutesAway);
+
+    trainNextArrival = moment().add(trainMinutesAway, "minutes");
+    console.log("ARRIVAL TIME: " + moment(trainNextArrival).format("hh:mm"));
+
+
+
 
     var tr = $("<tr>")
     tr.append(
       "<td>" + tName + "</td>",
       "<td>" + tDestination + "</td>",
       "<td>" + tFrequency + "</td>",
-      "<td> to be calculated </td>",
-      "<td> to be calculated </td>",
+      "<td>" + moment(trainNextArrival).format("hh:mm") +"</td>",
+      "<td>" + trainMinutesAway + "</td>",
     )
     $("tbody").append(tr)
 });
+
