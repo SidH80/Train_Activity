@@ -1,7 +1,7 @@
 # Train_Activity
 
  ## Usage
- ![Screen Shot 2019-10-09 at 8 22 19 PM](https://user-images.githubusercontent.com/51130585/69213328-bf5bf800-0b31-11ea-808e-c48dbacfbc35.png)
+ ![Screen Shot 2019-10-09 at 8 22 19 PM](https://user-images.githubusercontent.com/51130585/69214779-d56bb780-0b35-11ea-84b4-3ddfc282284b.png)
 
 TrainTimes
 UCF Boot Camp
